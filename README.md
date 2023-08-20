@@ -44,9 +44,25 @@ If it restores your windows and tabs then you already set and problem is solved.
 
 ### Try the restore script
 
-If your Chrome didn't restore your windows/tabs and doesn't propose to do this in a next start, you need restore the previous session from the backups made by this script. 
+If your Chrome didn't restore your windows/tabs and doesn't propose to do this at a next start, you need to restore the previous session from the backups made by this script. 
 
-First close the Chrome all windows - the browser should not run for your user!
+First, __ensure Chrome browser isn't running for your user__! Close all Chrome windows, shutdown all its processes!
+
+On Linux/Unix you may run shell commands to find and then *kill* your Chrome stuff:
+```bash
+$ ps -A | grep chrome
+  609 tty2     00:00:27 chrome
+  618 ?        00:00:00 chrome_crashpad
+  620 ?        00:00:00 chrome_crashpad
+  626 tty2     00:00:00 chrome
+  631 tty2     00:00:00 chrome
+....
+$ kill -KILL 609
+``` 
+
+> [!IMPORTANT] 
+> You may need check several times to shutdown all Chrome processes.
+> It's crucially important to restore (by the script or manually) only against the fully stopped browser!
 
 Use the restore script by simply invoking it `google-chrome-restore.sh`. It will replace the Chrome sessions with one copied on your user last login. 
 
